@@ -1,8 +1,8 @@
 //配置选项
 var option = {
     grid: {
-        width: 800,
-        height: 800,
+        width: 1200,
+        height: 1200,
         left:80,
         right:80,
         top:30,

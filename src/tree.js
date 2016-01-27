@@ -1,8 +1,8 @@
 //配置选项
 var option = {
     grid: {
-        width: 1400,
-        height: 1000,
+        width: 800,
+        height: 800,
         left:80,
         right:80,
         top:30,
@@ -124,42 +124,6 @@ function setScale() {
 
 
 function updateTree(source) {
-    //var rNormal = function(d) {
-    //    if (!d.size) {
-    //        if (d.depth === 0) {
-    //            return 10;
-    //        }
-    //        else {
-    //            return 4.5;
-    //        }
-    //    }
-    //    else{
-    //        if (d.depth === 1) {
-    //            return rScale1(d.size);
-    //        }
-    //        else{
-    //            return rScale2(d.size);
-    //        }
-    //    }
-    //};
-    //var rEmphasis = function(d) {
-    //    if (!d.size) {
-    //        if (d.depth === 0) {
-    //            return 15;
-    //        }
-    //        else {
-    //            return 7;
-    //        }
-    //    }
-    //    else{
-    //        if (d.depth === 1) {
-    //            return rScale1(d.size) + 2;
-    //        }
-    //        else{
-    //            return rScale2(d.size) + 2;
-    //        }
-    //    }
-    //};
 
     var rfixNormal = function(d) {
         return rfix[d.depth];
@@ -175,19 +139,6 @@ function updateTree(source) {
     var rEmphasis = function(d) {
         return rNormal(d)+2;
     };
-
-    //var colorNormalold = function (d){
-    //    if (d.depth === 0) {
-    //        return "grey";
-    //    }
-    //    else if (d.depth === 1) {
-    //        return colorScale1(d.size);
-    //    }
-    //    else{
-    //        return colorScale2(d.size);
-    //    }
-    //
-    //};
 
 
     var colorfix = ["#efd42f", "#ebc02f", "#e38e2f", "#71badd", "#41a2db", "#ccc", "#ccc", "#ccc"];
@@ -251,7 +202,7 @@ function updateTree(source) {
 
     // Normalize for fixed-depth.
     nodes.forEach(function(d, i) {
-        d.y = d.depth * 130;
+        d.y = d.depth * 100;
     });
 
     // Update the nodes…
@@ -520,12 +471,6 @@ function renderChart() {
     setScale();
     updateTree(root);
 
-    //缺省展开前12的租户
-    //var top10 = getTopN(13);
-    //
-    ////console.log("top10", top10);
-    //toggleAll(root);
-    //updateTree(root);
 }
 
 function mockdata() {
@@ -596,22 +541,6 @@ function mockdata() {
         size:0
     };
 
-    //function markdata(data) {
-    //    if (data.hasOwnProperty("children")) {
-    //        data.children.forEach(function(d, i) {
-    //            markdata(d);
-    //        });
-    //    }
-    //}
-    //for (var k=0; k < 5; k++) {
-    //    var trunk = {name:"租户"+k, children:[], size: Math.round((Math.random() + 1) * 500)};
-    //    for (var j=0; j < 10; j++) {
-    //        var leaf = {name:"数据库"+j, size: Math.round((Math.random() + 1) * 50)};
-    //        trunk.children[j] = leaf;
-    //    }
-    //    data.children.push(trunk);
-    //}
-
     return data;
 }
 
@@ -619,34 +548,3 @@ setData(mockdata());
 initChart("#treechart");
 renderChart();
 
-//var service = {
-//    setOption: function (newOption) {
-//
-//    },
-//    setSeries: function (series) {
-//
-//        function mockdata() {
-//            var data = {name:"系统", children:[], size:0};
-//
-//            for (var k=0; k < 50; k++) {
-//                var trunk = {name:"租户"+k, children:[], size: Math.round((Math.random() + 1) * 500)};
-//                for (var j=0; j < 10; j++) {
-//                    var leaf = {name:"数据库"+j, size: Math.round((Math.random() + 1) * 50)};
-//                    trunk.children[j] = leaf;
-//                }
-//                data.children.push(trunk);
-//            }
-//
-//            return data;
-//        }
-//
-//        setData(mockdata());
-//    },
-//    render: function (chartId) {
-//        initChart(chartId);
-//        renderChart();
-//    },
-//    destroy: function (chartId) {
-//        destroyChart(chartId);
-//    }
-//};

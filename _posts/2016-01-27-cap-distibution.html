@@ -1,13 +1,9 @@
-<!-- -&#45;&#45;-->
-<!--　　layout: default-->
-<!--　　title: 大数据能力图谱-->
-<!--　　-&#45;&#45;-->
-<!--　　<h2>{{ page.title }}</h2>-->
-<!--　　<p>d3</p>-->
-<!--　　<p>{{ page.date | date_to_string }}</p>-->
+---
+　　layout: default
+　　title: 大数据能力图谱
+---
 
 <style>
-
     .tree-text {
         font-family: '微软雅黑', sans-serif;
     }
@@ -18,8 +14,7 @@
 
 </style>
 <!--<link rel="stylesheet" href="app.css">-->
-<body>
+
 <div id="treechart"></div>
 <script src={{ "/js/d3.js" | prepend: site.baseurl }}></script>
 <script src={{ "/src/tree.js" | prepend: site.baseurl }}></script>
-</body>
